@@ -8,7 +8,7 @@ import { PiNotePencilThin } from "react-icons/pi";
 import { MdFavoriteBorder } from "react-icons/md";
 
 const Navbar = () => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false); // aa
 
   const toggleDropDown = () => {
     setDropdownOpen(!isDropdownOpen);
