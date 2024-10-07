@@ -1,9 +1,14 @@
 import React from 'react'
 import './main.scss'
+import CardList from '../CardList/CardList.jsx'
+import Forms from '../Forms/Forms.jsx'
 
-const Main = () => {
+const Main = ({blogs, addNewBlog}) => {
   return (
-    <div>Main</div>
+    <div className='main-container'>
+      <Forms blogs = {blogs} addNewBlog = {addNewBlog}></Forms>
+      <CardList blogs = {blogs}></CardList>
+    </div>
   )
 }
 

@@ -1,9 +1,13 @@
 import React from 'react'
 import './category.scss'
 
-const Category = () => {
+const Category = ({category}) => {
   return (
-    <div>Category</div>
+    <div className='category'>
+      {
+        category.categoryName
+      }
+    </div>
   )
 }
 

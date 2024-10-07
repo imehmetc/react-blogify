@@ -2,10 +2,15 @@ import React from 'react'
 import Card from '../Card/Card.jsx'
 import './cardlist.scss'
 
-const CardList = () => {
+const CardList = ({blogs}) => {
   return (
     <div>
-     <Card></Card>
+      {
+        blogs.map(blog => 
+          <Card key={blog.id} blog = {blog}></Card>
+        )
+      }
+     
     </div>
    
   )
