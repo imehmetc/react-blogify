@@ -1,5 +1,9 @@
 export const categories = [
     {
+        id: 0,
+        categoryName: "All Categories"
+    },
+    {
         id: 1,
         categoryName: "Software"
     },
@@ -59,56 +63,4 @@ export const categories = [
         id: 15,
         categoryName: "Web Development"
     },
-    {
-        id: 16,
-        categoryName: "Mobile Development"
-    },
-    {
-        id: 17,
-        categoryName: "Big Data"
-    },
-    {
-        id: 18,
-        categoryName: "Internet of Things"
-    },
-    {
-        id: 19,
-        categoryName: "Digital Marketing"
-    },
-    {
-        id: 20,
-        categoryName: "E-commerce"
-    },
-    {
-        id: 21,
-        categoryName: "Business Analytics"
-    },
-    {
-        id: 22,
-        categoryName: "Quantum Computing"
-    },
-    {
-        id: 23,
-        categoryName: "Bioinformatics"
-    },
-    {
-        id: 24,
-        categoryName: "Robotics"
-    },
-    {
-        id: 25,
-        categoryName: "3D Printing"
-    },
-    {
-        id: 26,
-        categoryName: "Nanotechnology"
-    },
-    {
-        id: 27,
-        categoryName: "SaaS"
-    },
-    {
-        id: 28,
-        categoryName: "Autonomous Vehicles"
-    }
 ]

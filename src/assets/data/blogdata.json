@@ -1,0 +1,126 @@
+{
+  "blogs": [
+    {
+      "id": "1",
+      "title": "Yeni blog",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit doloremque qui quidem explicabo numquam minus laboriosam odio reiciendis debitis tenetur, animi magni nihil dolore optio adipisci, vero recusandae quas quos!",
+      "imageUrl": "https://images.unsplash.com/photo-1629904853716-f0bc54eea481?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "userEmail": "deneme@deneme.com",
+      "category": "Software",
+      "likeCount": 13,
+      "viewCount": 22,
+      "userCommentCount": 2
+    },
+    {
+      "id": "2",
+      "title": "Yeni blog 2",
+      "content": "Loasdasdsadrem ipsasdasdasdum dolor sit amet consectetur adipisicing elit. Impedit doloremque qui quidem explicabo numquam minus laboriosam odio reiciendis debitis tenetur, animi magni nihil dolore optio adipisci, vero recusandae quas quos!",
+      "imageUrl": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "userEmail": "abc@abc.com",
+      "category": "DevOps",
+      "likeCount": 25,
+      "viewCount": 59,
+      "userCommentCount": 10
+    },
+    {
+      "id": "3",
+      "title": "Yeni blog 3",
+      "content": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit doloremque qui quidem explicabo numquam minus laboriosam odio reiciendis debitis tenetur, animi magni nihil dolore optio adipisci, vero recusandae quas quos!",
+      "imageUrl": "https://images.unsplash.com/photo-1522252234503-e356532cafd5?q=80&w=1450&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "userEmail": "sss@sss.com",
+      "category": "Machine Learning",
+      "likeCount": 159,
+      "viewCount": 880,
+      "userCommentCount": 43
+    },
+    {
+      "id": "4",
+      "title": "Virtual Reality Teknolojisinde Son Gelişmeler",
+      "content": "Virtual reality (VR) teknolojisi, kullanıcıları tamamen dijital bir ortamda deneyim yaşatmak için hızla gelişiyor. Bu teknoloji, eğitimden eğlenceye kadar birçok alanda devrim niteliğinde yenilikler sunuyor. VR, sadece oyun dünyasında değil, sağlık, eğitim ve sanal toplantılar gibi birçok sektörde kullanılmaya başlanıyor.",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1710909338459-fd74fb62235b?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "userEmail": "ornek@ornek.com",
+      "category": "Virtual Reality",
+      "likeCount": "25",
+      "viewCount": "50",
+      "userCommentCount": "5"
+    },
+    {
+      "id": "5",
+      "title": "asdlkjaksd",
+      "content": "lkajsdlkasdlkj",
+      "imageUrl": "",
+      "userEmail": "aşsldjkk@alksjdsa.com",
+      "category": "Virtual Reality",
+      "likeCount": "22",
+      "viewCount": "22",
+      "userCommentCount": "22",
+      "isDeleted": true
+    }
+  ],
+  "categories": [
+    {
+      "id": "0",
+      "categoryName": "All Categories"
+    },
+    {
+      "id": "1",
+      "categoryName": "Software"
+    },
+    {
+      "id": "2",
+      "categoryName": "Finance"
+    },
+    {
+      "id": "3",
+      "categoryName": "Data Science"
+    },
+    {
+      "id": "4",
+      "categoryName": "Artificial Intelligence"
+    },
+    {
+      "id": "5",
+      "categoryName": "Technology"
+    },
+    {
+      "id": "6",
+      "categoryName": "Cryptocurrency"
+    },
+    {
+      "id": "7",
+      "categoryName": "Blockchain"
+    },
+    {
+      "id": "8",
+      "categoryName": "Gaming"
+    },
+    {
+      "id": "9",
+      "categoryName": "Cybersecurity"
+    },
+    {
+      "id": "10",
+      "categoryName": "Cloud Computing"
+    },
+    {
+      "id": "11",
+      "categoryName": "Augmented Reality"
+    },
+    {
+      "id": "12",
+      "categoryName": "Virtual Reality"
+    },
+    {
+      "id": "13",
+      "categoryName": "Machine Learning"
+    },
+    {
+      "id": "14",
+      "categoryName": "DevOps"
+    },
+    {
+      "id": "15",
+      "categoryName": "Web Development"
+    }
+  ]
+}

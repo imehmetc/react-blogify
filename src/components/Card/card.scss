@@ -1,52 +1,57 @@
 .blog-card {
-    background-color: #2c2c2c;
-    padding: 10px;
-    display: flex;
-    position: relative;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: .4s;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    letter-spacing: .5px;
+  background-color: #2c2c2c;
+  padding: 10px;
+  display: flex;
+  position: relative;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: .4s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  letter-spacing: .5px;
 
-    &:hover{
-        transform: scale(1.02);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.85);
+  &:hover{
+      transform: scale(1.02);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.85);
+  }
+
+  img {
+    width: 30%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.50);
+  }
+
+  .card-content {
+    width: 70%;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3 {
+      color: #cacaca;
+      margin-bottom: 10px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
-  
-    img {
-      width: 30%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.50);
+
+    p {
+      color: #bbb;
+      margin-bottom: 8px;
     }
-  
-    .card-content {
-      width: 70%;
-      padding: 0 20px;
+
+    .card-footer {
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
-  
-      h3 {
-        color: #cacaca;
-        margin-bottom: 10px;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-  
-      p {
-        color: #bbb;
-        margin-bottom: 8px;
-      }
-      
+      align-items: center;
+      margin-top: 10px;
+      color: #888;
 
       .card-stats {
         display: flex;
-        color: #888;
         gap: 10px;
   
         span {
@@ -54,6 +59,117 @@
           margin-right: 10px;
         }
       }
+
+      .card-category {
+        display: inline;
+
+        span {
+          margin-left: 16px;
+          font-size: 14px;
+          color: #b4b4b4;
+          cursor: pointer;
+          transition: .2s ease-in-out;
+          background-color: #77767660;
+          border-radius: 100px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+          padding: 10px 10px;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+      
+      .card-buttons {
+        display: flex;
+        gap: 10px;
+        
+        button {
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          color: #cacaca;
+          font-size: 25px;
+          transition: .2s ease-in-out;
+          
+          &:hover {
+            color: #fff;
+            transform: scale(1.15);
+          }
+        }
+      }
     }
   }
+}
+
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+}
+
+.popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+  width: 500px;
+
+
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
   
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 100%;
+      font-family: "Poppins", sans-serif;
+    }
+
+    button {
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: #2c2c2c;
+      color: #fff;
+      border-radius: 5px;
+      transition: 0.3s ease-in-out;
+      text-transform: uppercase;
+
+      &:hover {
+        background-color: #444;
+      }
+
+      &:nth-of-type(2) {
+        background-color: #888;
+
+        &:hover {
+          background-color: #555;
+        }
+      }
+    }
+  }
+}

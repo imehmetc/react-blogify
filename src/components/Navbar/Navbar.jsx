@@ -7,7 +7,7 @@ import { FaRegUser } from "react-icons/fa6";
 import { PiNotePencilThin } from "react-icons/pi";
 import { MdFavoriteBorder } from "react-icons/md";
 
-const Navbar = () => {
+const Navbar = ({setSearch}) => {
   const [isDropdownOpen, setDropdownOpen] = useState(false); // aa
 
   const toggleDropDown = () => {
@@ -18,12 +18,12 @@ const Navbar = () => {
     <nav className='navbar'>
       <div className="logo-search">
         <img src={Logo} alt="BLOGIFY" />
-        <input className='searchbox' type="search" placeholder='Search' />
+        <input onChange={e => setSearch(e.target.value)} className='searchbox' type="search" placeholder='Search' />
       </div>
       <div className="nav-items">
         {/* Kullanıcı Giriş Yapmışsa */}
-        <div className='btn-write'><PiNotePencilThin size={23}/> Write</div>
-        <div className='btn-notification'> <FaRegBell size={20} /></div>
+        <div className='btn-write'><PiNotePencilThin size={28}/> <span>Write</span> </div>
+        <div className='btn-notification'> <FaRegBell size={25} /></div>
         
         <img src={ProfilePhoto} className='profile-photo' alt="Profile Photo" onClick={toggleDropDown} />
         
