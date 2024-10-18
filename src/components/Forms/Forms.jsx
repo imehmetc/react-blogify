@@ -47,6 +47,7 @@ const Forms = ({blogs, addNewBlog, categories}) => {
           <option>Select a Category</option>
           {
             categories.map(category => 
+              category.categoryName !== "All Categories" &&
               <option key={category.id}>{category.categoryName}</option>
             )
           }          

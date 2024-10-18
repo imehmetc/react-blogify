@@ -7,6 +7,8 @@ import Footer from './components/Footer/Footer.jsx'
 import { blogs } from './assets/data/blogs.js'
 import { categories } from './assets/data/categories.js'
 import axios from 'axios'
+import { Flip, toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const App = () => {
@@ -50,16 +52,81 @@ const App = () => {
     setBlogs(prev => [...prev, newBlog]);
     const url = "http://localhost:3000/blogs";
     await axios.post(url, newBlog);
+
+    toast.success('Blog Successfully Added!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Flip,
+      });
   };
 
   // Delete Blog
   const deleteBlog = async (id) => {
-    setBlogs(prev => prev.filter(blog => blog.id !== id));
-    const url = `http://localhost:3000/blogs/${id}`;
-    await axios.patch(url, { isDeleted:true });
+    const confirmation = confirm("Do you want to delete this blog?");
+    if (confirmation) {
+      setBlogs(prev => prev.filter(blog => blog.id !== id));
+      const url = `http://localhost:3000/blogs/${id}`;
+      await axios.patch(url, { isDeleted:true });
+
+      toast.success('Blog Successfully Deleted!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Flip,
+        });
+    }
+    else{
+      toast.info('Blog deletion cancelled.', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Flip,
+        });
+    }
+    
   };
   
-  
+  // Update Blog
+  const updateBlog = async(id, updatedBlog) => {
+    const url = `http://localhost:3000/blogs/${id}`;
+    await axios.patch(url, updatedBlog);
+    setBlogs(prev => prev.map(blog => {
+      if(blog.id === updatedBlog.id){
+      return {...updatedBlog};
+      }
+      else{
+      return {...blog};
+      }
+    }));
+
+    toast.success('Blog Successfully Updated!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Flip,
+      });
+  };
 
   return (
     <>
@@ -73,15 +140,30 @@ const App = () => {
         
         <Main 
           blogs = {blogData} 
-          addNewBlog = {addNewBlog} 
           categories = {categoryData}
-          deleteBlog = {deleteBlog}
           selectedCategory = {selectedCategory}
           search = {search}
+          addNewBlog = {addNewBlog} 
+          deleteBlog = {deleteBlog}
+          updateBlog = {updateBlog}
         ></Main>
       
       </div>
       {/* <Footer></Footer> */}
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        transition: Flip
+      />
     </>
   )
 }

@@ -2,7 +2,7 @@ import React from 'react'
 import Card from '../Card/Card.jsx'
 import './cardlist.scss'
 
-const CardList = ({blogs, deleteBlog, selectedCategory, search, categories}) => {
+const CardList = ({blogs, deleteBlog, selectedCategory, search, categories, updateBlog}) => {
   return (
     <div>
       {
@@ -15,6 +15,7 @@ const CardList = ({blogs, deleteBlog, selectedCategory, search, categories}) => 
             deleteBlog={ deleteBlog }
             search = {search}
             categories = {categories}
+            updateBlog = {updateBlog}
           ></Card>
         )
       }

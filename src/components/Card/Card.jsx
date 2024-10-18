@@ -1,15 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './card.scss';
 import { FaThumbsUp, FaRegEye, FaRegComment, FaRegUserCircle, } from "react-icons/fa";
 import { FaRegTrashCan, FaRegPenToSquare } from "react-icons/fa6";
 
-const Card = ({ blog, deleteBlog, search, categories }) => {
+const Card = ({ blog, deleteBlog, search, categories, updateBlog }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
 
+
+  // Blog Update
+  const[title, setTitle] = useState("");
+  const[content, setContent] = useState("");
+  const[image, setImage] = useState("");
+  const[category, setCategory] = useState("");
+ 
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const updatedBlog = {
+      id: blog.id,
+      title: title,
+      content: content,
+      imageUrl: image,
+      category: category
+    };
+    
+    updateBlog(blog.id, updatedBlog);
+
+    togglePopup();
+  };
+
+  useEffect(() => {
+    if (isPopupOpen) {
+      setTitle(blog.title);
+      setContent(blog.content);
+      setImage(blog.imageUrl);
+      setCategory(blog.category);
+    }
+  }, [isPopupOpen])
   return (
     <>
       {blog.title.toLowerCase().startsWith(search.toLowerCase()) && (
@@ -47,25 +79,24 @@ const Card = ({ blog, deleteBlog, search, categories }) => {
         <div className="popup-container">
           <div className="popup">
             <h2>Edit Blog</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
               <label>Title:</label>
-              <input type="text" defaultValue={blog.title} />
+              <input type="text" value={title} onChange={e => setTitle(e.target.value)} />
               
               <label>Content:</label>
-              <textarea rows={6} defaultValue={blog.content} />
+              <textarea rows={6} value={content} onChange={e => setContent(e.target.value)} />
 
               <label>Image Url:</label>
-              <input type="text" defaultValue={blog.imageUrl} />
+              <input type="text" value={image} onChange={e => setImage(e.target.value)} />
 
               <label>Category:</label>
-              <select>
+              <select value={category} onChange={e => setCategory(e.target.value)}>
                 {
                   categories.map(category => 
                     category.categoryName !== "All Categories" &&
                     <option 
                     key={category.id}
                     value={category.categoryName}
-                    selected={category.categoryName === blog.category}
                     >
                       {category.categoryName}
                     </option>

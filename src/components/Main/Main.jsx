@@ -3,7 +3,7 @@ import './main.scss'
 import CardList from '../CardList/CardList.jsx'
 import Forms from '../Forms/Forms.jsx'
 
-const Main = ({blogs, addNewBlog, categories, deleteBlog, selectedCategory, search}) => {
+const Main = ({blogs, addNewBlog, categories, deleteBlog, selectedCategory, search, updateBlog}) => {
   return (
     <div className='main-container'>
       <Forms 
@@ -17,7 +17,8 @@ const Main = ({blogs, addNewBlog, categories, deleteBlog, selectedCategory, sear
         deleteBlog = {deleteBlog}
         selectedCategory = {selectedCategory}
         search = {search}
-        categories = {categories}>
+        categories = {categories}
+        updateBlog = {updateBlog}>
       </CardList>
     </div>
   )
