@@ -11,8 +11,8 @@ export const DataProvider = ({children}) => {
   const [blogData, setBlogs] = useState([]);
   const [categoryData, setCategoryData] = useState([]);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const[selectedCategory, setSelectedCategory] = useState("All Categories");
-  const[search, setSearch] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+  const [search, setSearch] = useState("");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -49,10 +49,11 @@ export const DataProvider = ({children}) => {
     getCategories();
   }, []);
 
+
+  // Yeni blog ekleme (Forms.jsx)
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Yeni blog ekleme
     addNewBlog({
         id: (Number(blogData[blogData.length - 1].id) + 1).toString(),
         title: title,

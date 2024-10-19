@@ -44,6 +44,7 @@ const Card = ({ blog }) => {
       setCategory(blog.category);
     }
   }, [isPopupOpen])
+  
   return (
     <>
       {blog.title.toLowerCase().startsWith(search.toLowerCase()) && (
