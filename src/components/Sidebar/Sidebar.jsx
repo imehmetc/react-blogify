@@ -14,7 +14,7 @@ const Sidebar = () => {
         {categories.map(category => (
           <li key={category.id} onClick={e => setSelectedCategory(e.target.innerText)
           }>
-            <Category category={category} />
+            <Category key={category.id} category={category} />
           </li>
         ))}
       </ul>

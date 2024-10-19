@@ -3,43 +3,7 @@ import '../Forms/forms.scss'
 import DataContext from '../../context/DataContext';
 
 const Forms = () => {
-    const { blogs, addNewBlog, categories } = useContext(DataContext);
-    
-    const [title, setTitle] = useState("");
-    const [content, setContent] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
-    const [userEmail, setUserEmail] = useState("");
-    const [likeCount, setLikeCount] = useState("");
-    const [viewCount, setViewCount] = useState("");
-    const [userCommentCount, setUserCommentCount] = useState("");
-    const [category, setCategory] = useState("Select a Category");
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        // Yeni blog ekleme
-        addNewBlog({
-            id: (Number(blogs[blogs.length - 1].id) + 1).toString(),
-            title: title,
-            content: content,
-            imageUrl: imageUrl,
-            userEmail: userEmail,
-            category: category,
-            likeCount: likeCount,
-            viewCount: viewCount,
-            userCommentCount: userCommentCount
-        });
-
-        // Formu resetleme
-        setTitle("");
-        setContent("");
-        setImageUrl("");
-        setUserEmail("");
-        setLikeCount("");
-        setViewCount("");
-        setUserCommentCount("");
-        setCategory("Select a Category");
-    };
+    const { handleSubmit, categories, title, content, imageUrl, userEmail, likeCount, viewCount, userCommentCount, category, setTitle, setCategory, setImageUrl, setLikeCount, setViewCount, setUserCommentCount,setContent, setUserEmail } = useContext(DataContext);
 
   return (
     <form className='blog-form' onSubmit={handleSubmit}>

@@ -169,6 +169,18 @@
       "viewCount": "22",
       "userCommentCount": "22",
       "isDeleted": true
+    },
+    {
+      "id": "16",
+      "title": "asdjasd",
+      "content": "lajsdlklasjdk",
+      "imageUrl": "",
+      "userEmail": "alskdjsad@gmail.com",
+      "category": "Technology",
+      "likeCount": "11",
+      "viewCount": "11",
+      "userCommentCount": "11",
+      "isDeleted": true
     }
   ],
   "categories": [

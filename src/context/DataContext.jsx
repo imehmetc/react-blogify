@@ -7,21 +7,27 @@ const DataContext = createContext();
 
 export const DataProvider = ({children}) => {
 
-    
-  // Datas without Api
-  // const [blogData, setBlogs] = useState(blogs);
-  // const [categoryData, setCategory] = useState(categories);
-
-  // Datas with Api
+  // useStates
   const [blogData, setBlogs] = useState([]);
-  const [categoryData, setCategory] = useState([]);
-
+  const [categoryData, setCategoryData] = useState([]);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-
+  const[selectedCategory, setSelectedCategory] = useState("All Categories");
+  const[search, setSearch] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [likeCount, setLikeCount] = useState("");
+  const [viewCount, setViewCount] = useState("");
+  const [userCommentCount, setUserCommentCount] = useState("");
+  const [category, setCategory] = useState("Select a Category");
+  
+  // Navbar Profile Dropdown
   const toggleDropDown = () => {
     setDropdownOpen(!isDropdownOpen);
   };
 
+  // Get Blogs
   const getBlogs = async () => {
     const url = "http://localhost:3000/blogs";
     const response = await fetch(url);
@@ -29,24 +35,47 @@ export const DataProvider = ({children}) => {
     setBlogs(blogs);
   };
 
+  // Get Categories
   const getCategories = async () => {
     const url = "http://localhost:3000/categories";
     const response = await axios.get(url);
     const categories = await response.data;
-    setCategory(categories);
+    setCategoryData(categories);
   };
 
-  // useEffect()
+  // useEffects
   useEffect(() => {
     getBlogs();
     getCategories();
   }, []);
 
-  // Category Filter
-  const[selectedCategory, setSelectedCategory] = useState("All Categories");
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  // Search Filter
-  const[search, setSearch] = useState("");
+    // Yeni blog ekleme
+    addNewBlog({
+        id: (Number(blogData[blogData.length - 1].id) + 1).toString(),
+        title: title,
+        content: content,
+        imageUrl: imageUrl,
+        userEmail: userEmail,
+        category: category,
+        likeCount: likeCount,
+        viewCount: viewCount,
+        userCommentCount: userCommentCount
+      });
+
+      // Formu resetleme
+      setTitle("");
+      setContent("");
+      setImageUrl("");
+      setUserEmail("");
+      setLikeCount("");
+      setViewCount("");
+      setUserCommentCount("");
+      setCategory("Select a Category");
+    };
+  
 
   // Add New Blog
   const addNewBlog = async (newBlog) => {
@@ -141,7 +170,24 @@ export const DataProvider = ({children}) => {
       selectedCategory,
       toggleDropDown,
       search, 
-      updateBlog
+      updateBlog,
+      handleSubmit,
+      title,
+      setTitle,
+      content,
+      setContent,
+      category,
+      setCategory,
+      imageUrl,
+      setImageUrl,
+      userEmail,
+      setUserEmail,
+      likeCount,
+      setLikeCount,
+      viewCount,
+      setViewCount,
+      userCommentCount,
+      setUserCommentCount
       }}>
                 {children}
             </DataContext.Provider>
