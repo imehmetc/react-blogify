@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './card.scss';
 import { FaThumbsUp, FaRegEye, FaRegComment, FaRegUserCircle, } from "react-icons/fa";
 import { FaRegTrashCan, FaRegPenToSquare } from "react-icons/fa6";
+import DataContext from '../../context/DataContext';
 
-const Card = ({ blog, deleteBlog, search, categories, updateBlog }) => {
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+const Card = ({ blog }) => {
+  const { categories, deleteBlog, search, updateBlog } = useContext(DataContext);
   
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };

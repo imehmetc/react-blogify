@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './navbar.scss'
 import Logo from '../../assets/img/logo2.png'
 import ProfilePhoto from '../../assets/img/profile-photo.jpg'
@@ -6,13 +6,10 @@ import { FaRegBell, FaSignOutAlt  } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa6";
 import { PiNotePencilThin } from "react-icons/pi";
 import { MdFavoriteBorder } from "react-icons/md";
+import DataContext from '../../context/DataContext';
 
-const Navbar = ({setSearch}) => {
-  const [isDropdownOpen, setDropdownOpen] = useState(false); // aa
-
-  const toggleDropDown = () => {
-    setDropdownOpen(!isDropdownOpen);
-  };
+const Navbar = () => {
+  const { setSearch, toggleDropDown, isDropdownOpen } = useContext(DataContext);
 
   return (
     <nav className='navbar'>

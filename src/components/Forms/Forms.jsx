@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import '../Forms/forms.scss'
+import DataContext from '../../context/DataContext';
 
-const Forms = ({blogs, addNewBlog, categories}) => {
+const Forms = () => {
+    const { blogs, addNewBlog, categories } = useContext(DataContext);
+    
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [imageUrl, setImageUrl] = useState("");

@@ -157,6 +157,18 @@
       "likeCount": "52",
       "viewCount": "230",
       "userCommentCount": "20"
+    },
+    {
+      "id": "15",
+      "title": "xxxx",
+      "content": "xxxxxx",
+      "imageUrl": "",
+      "userEmail": "alksjd@gmail.com",
+      "category": "Gaming",
+      "likeCount": "22",
+      "viewCount": "22",
+      "userCommentCount": "22",
+      "isDeleted": true
     }
   ],
   "categories": [

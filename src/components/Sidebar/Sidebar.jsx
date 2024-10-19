@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Category from '../Category/Category.jsx'
 import './sidebar.scss'
+import DataContext from '../../context/DataContext.jsx'
 
-const Sidebar = ({ categories, setSelectedCategory }) => {
+const Sidebar = () => {
+  
+  const {categories, setSelectedCategory} = useContext(DataContext);
+  
   return (
     <div className='sidebar'>
       <h3 className='category-title'>Categories</h3>
