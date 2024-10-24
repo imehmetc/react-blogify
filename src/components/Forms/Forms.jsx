@@ -3,27 +3,27 @@ import '../Forms/forms.scss'
 import DataContext from '../../context/DataContext';
 
 const Forms = () => {
-    const { handleSubmit, categories, title, content, imageUrl, userEmail, likeCount, viewCount, userCommentCount, category, setTitle, setCategory, setImageUrl, setLikeCount, setViewCount, setUserCommentCount,setContent, setUserEmail } = useContext(DataContext);
+    const { handleSubmit, categoryData, title, content, imageUrl, userEmail, likeCount, viewCount, userCommentCount, category, dispatch } = useContext(DataContext);
 
   return (
     <form className='blog-form' onSubmit={handleSubmit}>
         <h2>New Blog</h2>
-        <input type="text" placeholder='Title' value={title} onChange={e => setTitle(e.target.value)}  required/>
-        <textarea rows={6} placeholder='Content' value={content} onChange={e => setContent(e.target.value)}  required></textarea>
-        <select value={category} onChange={e => setCategory(e.target.value)} required>
+        <input type="text" placeholder='Title' value={title} onChange={e => dispatch({type: "setTitle", payload: e.target.value})}  required/>
+        <textarea rows={6} placeholder='Content' value={content} onChange={e =>dispatch({type: "setContent", payload: e.target.value})}  required></textarea>
+        <select value={category} onChange={e => dispatch({type: "setCategory", payload: e.target.value})} required>
           <option>Select a Category</option>
           {
-            categories.map(category => 
+            categoryData.map(category => 
               category.categoryName !== "All Categories" &&
               <option key={category.id}>{category.categoryName}</option>
             )
           }          
         </select>
-        <input type="text" placeholder='Image (URL)' value={imageUrl} onChange={e => setImageUrl(e.target.value)}/>
-        <input type="text" placeholder='User Email' value={userEmail} onChange={e => setUserEmail(e.target.value)} required/>
-        <input type="number" placeholder='Like Count' value={likeCount} onChange={e => setLikeCount(e.target.value)} required/>
-        <input type="number" placeholder='View Count' value={viewCount} onChange={e => setViewCount(e.target.value)}  required/>
-        <input type="number" placeholder='User Comment Count' value={userCommentCount} onChange={e => setUserCommentCount(e.target.value)}  required/>
+        <input type="text" placeholder='Image (URL)' value={imageUrl} onChange={e => dispatch({type: "setImageUrl", payload: e.target.value})}/>
+        <input type="text" placeholder='User Email' value={userEmail} onChange={e => dispatch({type: "setUserEmail", payload: e.target.value})} required/>
+        <input type="number" placeholder='Like Count' value={likeCount} onChange={e => dispatch({type: "setLikeCount", payload: e.target.value})} required/>
+        <input type="number" placeholder='View Count' value={viewCount} onChange={e => dispatch({type: "setViewCount", payload: e.target.value})} required/>
+        <input type="number" placeholder='User Comment Count' value={userCommentCount} onChange={e => dispatch({type: "setUserCommentCount", payload: e.target.value})}  required/>
 
         <input type="submit" value={"Publish"}/>
     </form>

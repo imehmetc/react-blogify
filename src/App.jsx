@@ -6,12 +6,14 @@ import Main from './components/Main/Main.jsx'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { DataProvider } from './context/DataContext.jsx'
+import { BrowserRouter } from 'react-router-dom'
 
 
 const App = () => {
 
   return (
-    <DataProvider>
+    <BrowserRouter>
+     <DataProvider>
       <Navbar/>
       <div className="container">
         <Sidebar/>
@@ -19,7 +21,9 @@ const App = () => {
       </div>
       {/* <Footer></Footer> */}
       <ToastContainer/>
-    </DataProvider>
+      </DataProvider>
+    </BrowserRouter>
+   
   )
 }
 

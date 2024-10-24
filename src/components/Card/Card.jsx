@@ -5,7 +5,7 @@ import { FaRegTrashCan, FaRegPenToSquare } from "react-icons/fa6";
 import DataContext from '../../context/DataContext';
 
 const Card = ({ blog }) => {
-  const { categories, deleteBlog, search, updateBlog } = useContext(DataContext);
+  const { categoryData, deleteBlog, search, updateBlog } = useContext(DataContext);
   
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const togglePopup = () => {
@@ -95,7 +95,7 @@ const Card = ({ blog }) => {
               <label>Category:</label>
               <select value={category} onChange={e => setCategory(e.target.value)}>
                 {
-                  categories.map(category => 
+                  categoryData.map(category => 
                     category.categoryName !== "All Categories" &&
                     <option 
                     key={category.id}

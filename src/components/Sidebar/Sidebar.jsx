@@ -5,14 +5,14 @@ import DataContext from '../../context/DataContext.jsx'
 
 const Sidebar = () => {
   
-  const {categories, setSelectedCategory} = useContext(DataContext);
+  const {categoryData, dispatch } = useContext(DataContext);
   
   return (
     <div className='sidebar'>
       <h3 className='category-title'>Categories</h3>
       <ul className='category-list'>
-        {categories.map(category => (
-          <li key={category.id} onClick={e => setSelectedCategory(e.target.innerText)
+        {categoryData.map(category => (
+          <li key={category.id} onClick={e => dispatch({type:"selectedCategory", payload: e.target.innerText})
           }>
             <Category key={category.id} category={category} />
           </li>

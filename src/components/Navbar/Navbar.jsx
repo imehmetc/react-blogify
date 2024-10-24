@@ -9,13 +9,13 @@ import { MdFavoriteBorder } from "react-icons/md";
 import DataContext from '../../context/DataContext';
 
 const Navbar = () => {
-  const { setSearch, toggleDropDown, isDropdownOpen } = useContext(DataContext);
+  const { toggleDropDown, isDropdownOpen, dispatch } = useContext(DataContext);
 
   return (
     <nav className='navbar'>
       <div className="logo-search">
         <img src={Logo} alt="BLOGIFY" />
-        <input onChange={e => setSearch(e.target.value)} className='searchbox' type="search" placeholder='Search' />
+        <input onChange={e => dispatch({type:"setSearch", payload: e.target.value})} className='searchbox' type="search" placeholder='Search' />
       </div>
       <div className="nav-items">
         {/* Kullanıcı Giriş Yapmışsa */}
