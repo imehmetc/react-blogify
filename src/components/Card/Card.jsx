@@ -53,12 +53,12 @@ const Card = ({ blog }) => {
   return (
     <>
       {blog.title.toLowerCase().startsWith(search.toLowerCase()) && (
-        <div className='blog-card'>
-          <img src={blog.imageUrl} onClick={() => navigate(`/blogdetail/${blog.id}`)} alt="photo" />
+        <div className='blog-card' >
+          <img src={blog.imageUrl} alt="photo" onClick={() => navigate(`/blogdetail/${blog.id}`)} />
           
           <div className='card-content'>
-            <h3 onClick={() => navigate(`/blogdetail/${blog.id}`)}>{blog.title}</h3>
-            <p>{(blog.content.length > 200 ? blog.content.substring(0,blog.content.substring(0,200).lastIndexOf(" ")) : blog.content) + "..."}</p>
+            <h3 onClick={() => navigate(`/blogdetail/${blog.id}`)} >{blog.title}</h3>
+            <p onClick={() => navigate(`/blogdetail/${blog.id}`)} >{(blog.content.length > 200 ? blog.content.substring(0,blog.content.substring(0,200).lastIndexOf(" ")) : blog.content) + "..."}</p>
             <p><FaRegUserCircle /><strong> {blog.userEmail}</strong> </p>
             
             <div className="card-footer">
