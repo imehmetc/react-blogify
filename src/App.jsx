@@ -19,7 +19,7 @@ const App = () => {
           <Route path='/' element={<MainPage/>}></Route>
           <Route path='/login' element={<LoginPage/>}></Route>
           <Route path='/newblog' element={<NewBlogPage/>}></Route>
-          <Route path='/blogdetail' element={<BlogDetailPage/>}></Route>
+          <Route path='/blogdetail/:id' element={<BlogDetailPage/>}></Route>
         </Routes>
       </BrowserRouter>
       <ToastContainer/>

@@ -81,6 +81,7 @@
         width: 55px;
         height: 55px;
         object-fit: cover;
+        transition: .3s;
 
         &:hover{
             box-shadow: 2px 3px 10px .3px #B7B7B7;

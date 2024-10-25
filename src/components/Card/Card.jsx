@@ -4,9 +4,11 @@ import { FaThumbsUp, FaRegEye, FaRegComment, FaRegUserCircle, } from "react-icon
 import { FaRegTrashCan, FaRegPenToSquare } from "react-icons/fa6";
 import DataContext from '../../context/DataContext';
 import AuthContext from '../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Card = ({ blog }) => {
   const { categoryData, deleteBlog, search, updateBlog } = useContext(DataContext);
+  const navigate = useNavigate();
   
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const togglePopup = () => {
@@ -52,10 +54,10 @@ const Card = ({ blog }) => {
     <>
       {blog.title.toLowerCase().startsWith(search.toLowerCase()) && (
         <div className='blog-card'>
-          <img src={blog.imageUrl} alt="photo" />
+          <img src={blog.imageUrl} onClick={() => navigate(`/blogdetail/${blog.id}`)} alt="photo" />
           
           <div className='card-content'>
-            <h3>{blog.title}</h3>
+            <h3 onClick={() => navigate(`/blogdetail/${blog.id}`)}>{blog.title}</h3>
             <p>{(blog.content.length > 200 ? blog.content.substring(0,blog.content.substring(0,200).lastIndexOf(" ")) : blog.content) + "..."}</p>
             <p><FaRegUserCircle /><strong> {blog.userEmail}</strong> </p>
             
