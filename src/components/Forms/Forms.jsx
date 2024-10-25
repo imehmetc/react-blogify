@@ -1,11 +1,16 @@
 import React, { useContext } from 'react'
 import '../Forms/forms.scss'
 import DataContext from '../../context/DataContext';
+import AuthContext from '../../context/AuthContext';
+
+
 
 const Forms = () => {
     const { handleSubmit, categoryData, title, content, imageUrl, userEmail, likeCount, viewCount, userCommentCount, category, dispatch } = useContext(DataContext);
+    const { isAuthenticated } = useContext(AuthContext);
 
   return (
+    isAuthenticated !== "null" &&
     <form className='blog-form' onSubmit={handleSubmit}>
         <h2>New Blog</h2>
         <input type="text" placeholder='Title' value={title} onChange={e => dispatch({type: "setTitle", payload: e.target.value})}  required/>

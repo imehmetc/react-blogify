@@ -63,6 +63,10 @@
         display: flex;
         align-items:center;
         
+        a{
+            text-decoration: none;
+            color: #B7B7B7;
+        }
         span{
             margin-top: 8px;
         }
@@ -117,6 +121,7 @@
                     display: flex;
                     align-items: center;
                     margin-left: 5px;
+                    cursor: pointer;
                     
                     svg{
                         margin-right: 10px;
@@ -127,6 +132,29 @@
                     }
                 }
             }
+        }
+    }
+
+    .btn-login{
+        width: 100px;
+        padding: 0 20px;
+        border-radius: 25px;
+        height: 30px;
+        margin: 0 auto;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        transition: .6s ease-in-out;
+        background-color: #fff;
+        margin-right: 10px;
+        font-size: small;
+        font-weight: 400;
+        font-family: 'poppins';
+        letter-spacing: 1px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        
+        &:hover{
+            background-color: #B7B7B7;
         }
     }
 }

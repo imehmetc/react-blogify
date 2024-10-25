@@ -1,28 +1,27 @@
 import React from 'react'
 import './assets/styles/index.scss'
-import Navbar from './components/Navbar/Navbar.jsx'
-import Sidebar from './components/Sidebar/Sidebar.jsx'
-import Main from './components/Main/Main.jsx'
-import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { DataProvider } from './context/DataContext.jsx'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import MainPage from './pages/MainPage.jsx'
+import LoginPage from './pages/LoginPage.jsx'
+import { ToastContainer } from 'react-toastify';
+import { AuthProvider } from './context/AuthContext.jsx';
+import NewBlogPage from './pages/NewBlogPage.jsx';
 
 
 const App = () => {
 
   return (
-    <BrowserRouter>
-     <DataProvider>
-      <Navbar/>
-      <div className="container">
-        <Sidebar/>
-        <Main />
-      </div>
-      {/* <Footer></Footer> */}
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<MainPage/>}></Route>
+          <Route path='/login' element={<LoginPage/>}></Route>
+          <Route path='/newblog' element={<NewBlogPage/>}></Route>
+        </Routes>
+      </BrowserRouter>
       <ToastContainer/>
-      </DataProvider>
-    </BrowserRouter>
+    </AuthProvider>
    
   )
 }

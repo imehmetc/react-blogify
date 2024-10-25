@@ -3,6 +3,7 @@ import './card.scss';
 import { FaThumbsUp, FaRegEye, FaRegComment, FaRegUserCircle, } from "react-icons/fa";
 import { FaRegTrashCan, FaRegPenToSquare } from "react-icons/fa6";
 import DataContext from '../../context/DataContext';
+import AuthContext from '../../context/AuthContext';
 
 const Card = ({ blog }) => {
   const { categoryData, deleteBlog, search, updateBlog } = useContext(DataContext);
@@ -11,6 +12,8 @@ const Card = ({ blog }) => {
   const togglePopup = () => {
     setIsPopupOpen(!isPopupOpen);
   };
+
+  const { isAuthenticated } = useContext(AuthContext);
 
 
   // Blog Update
@@ -68,10 +71,13 @@ const Card = ({ blog }) => {
                 <span> {blog.category} </span>
               </div>
               
-              <div className='card-buttons'>
-                <button onClick={() => deleteBlog(blog.id)}><FaRegTrashCan /></button>
-                <button onClick={togglePopup}><FaRegPenToSquare /></button>
-              </div>
+              {
+                isAuthenticated !== "null" &&
+                <div className='card-buttons'>
+                  <button onClick={() => deleteBlog(blog.id)}><FaRegTrashCan /></button>
+                  <button onClick={togglePopup}><FaRegPenToSquare /></button>
+                </div>
+              }
             
             </div>
           </div>
