@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage.jsx'
 import { ToastContainer } from 'react-toastify';
 import { AuthProvider } from './context/AuthContext.jsx';
 import NewBlogPage from './pages/NewBlogPage.jsx';
+import BlogDetailPage from './pages/BlogDetailPage.jsx';
 
 
 const App = () => {
@@ -18,11 +19,11 @@ const App = () => {
           <Route path='/' element={<MainPage/>}></Route>
           <Route path='/login' element={<LoginPage/>}></Route>
           <Route path='/newblog' element={<NewBlogPage/>}></Route>
+          <Route path='/blogdetail' element={<BlogDetailPage/>}></Route>
         </Routes>
       </BrowserRouter>
       <ToastContainer/>
     </AuthProvider>
-   
   )
 }
 

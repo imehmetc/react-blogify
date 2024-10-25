@@ -3,8 +3,6 @@ import '../Forms/forms.scss'
 import DataContext from '../../context/DataContext';
 import AuthContext from '../../context/AuthContext';
 
-
-
 const Forms = () => {
     const { handleSubmit, categoryData, title, content, imageUrl, userEmail, likeCount, viewCount, userCommentCount, category, dispatch } = useContext(DataContext);
     const { isAuthenticated } = useContext(AuthContext);

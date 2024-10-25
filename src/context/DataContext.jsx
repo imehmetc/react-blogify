@@ -133,8 +133,8 @@ export const DataProvider = ({children}) => {
         title: state.title,
         content: state.content,
         imageUrl: state.imageUrl,
-        userEmail: state.userEmail,
         category: state.category,
+        userEmail: state.userEmail,
         likeCount: state.likeCount,
         viewCount: state.viewCount,
         userCommentCount: state.userCommentCount

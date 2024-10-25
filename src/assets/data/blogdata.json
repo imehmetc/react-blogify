@@ -241,6 +241,18 @@
       "viewCount": "31",
       "userCommentCount": "11",
       "isDeleted": true
+    },
+    {
+      "id": "22",
+      "title": "aaazzz111",
+      "content": "22333",
+      "imageUrl": "https://plus.unsplash.com/premium_photo-1729688320703-acff8e51b661?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "category": "Cybersecurity",
+      "userEmail": "john@mail.com",
+      "likeCount": "1",
+      "viewCount": "1",
+      "userCommentCount": "1",
+      "isDeleted": true
     }
   ],
   "categories": [
