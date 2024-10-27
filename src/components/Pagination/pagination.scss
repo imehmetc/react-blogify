@@ -1,0 +1,43 @@
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 10px;
+
+    button {
+        width: 40px;
+        height: 40px;
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 16px;
+        margin: 0 5px; // Düğmeler arasındaki boşluğu azaltmak için
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: transparent;
+        color: #eee;
+        border: 1px solid #eee; // Kenar çizgisi
+        &:hover {
+            background-color: #b7b7b7;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5; // Devre dışı düğmeleri daha açık hale getir
+        }
+    }
+
+    span {
+        align-self: center; // Orta hizalama
+        margin: 0 10px; // Kenarlara boşluk ekle
+        color: #eee; // Yazı rengi
+    }
+}
+
+.pagination button.active {
+    font-weight: 900;
+    border-color: #101010;
+    background: #b7b7b7;
+    color: #101010;
+}
