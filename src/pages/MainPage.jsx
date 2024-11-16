@@ -7,13 +7,11 @@ import { DataProvider } from '../context/DataContext'
 const MainPage = () => {
   return (
     <>
-      <DataProvider>
-        <Navbar/>
-        <div className="container">
-            <Sidebar/>
-            <Main/>
-        </div>
-      </DataProvider>
+      <Navbar/>
+      <div className="container">
+          <Sidebar/>
+          <Main/>
+      </div>
     </>
   )
 }

@@ -25,6 +25,7 @@ export const DataProvider = ({children}) => {
     const blogs = await response.json();
     // case-1
     dispatch({type:"getBlogs", payload: blogs});
+    setLoading(false);
   };
 
   // Get Categories
@@ -34,6 +35,7 @@ export const DataProvider = ({children}) => {
     const categories = await response.data;
     // case-2
     dispatch({type:"getCategories", payload: categories});
+    setLoading(false);
   };
 
   // useEffects
@@ -145,6 +147,13 @@ export const DataProvider = ({children}) => {
       dispatch({type:"resetForm"});
     };
 
+    // Loading
+    const setLoading = (load) => {
+      dispatch({
+        type: "SET_LOADING", payload: load
+      });
+    };
+
     return <DataContext.Provider value={{
     
       addNewBlog, 
@@ -153,7 +162,9 @@ export const DataProvider = ({children}) => {
       updateBlog,
       handleSubmit,
       ...state,
-      dispatch
+      dispatch,
+      setLoading,
+      isLoading: state.isLoading
       
       }}>
                 {children}

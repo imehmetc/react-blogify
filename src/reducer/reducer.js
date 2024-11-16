@@ -11,9 +11,9 @@ export const initialState = {
     likeCount: "",
     viewCount: "",
     userCommentCount: "",
-    category: "Select a Category"
-
-}
+    category: "Select a Category",
+    isLoading: false,
+};
 
 export const reducer = (state, action) => {
     switch (action.type) {
@@ -107,6 +107,8 @@ export const reducer = (state, action) => {
             return{
                 ...state,
                 blogData: state.blogData.map(item => item.id === action.payload.id ? {...action.payload} : item)
-            }
+            };
+        // Loading
+        case"SET_LOADING": return { ...state, isLoading: action.payload };
     }
 }

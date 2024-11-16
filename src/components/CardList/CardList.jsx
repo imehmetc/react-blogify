@@ -10,11 +10,11 @@ const CardList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage, setPostsPerPage] = useState(6);
 
-  const lastPostIndex = currentPage * postsPerPage;
-  const firstPostIndex = lastPostIndex - postsPerPage;
+  const lastPostIndex = currentPage * postsPerPage; // son postun index'i
+  const firstPostIndex = lastPostIndex - postsPerPage; // ilk postun index'i
 
   const unDeletedDatas = blogData.filter(data => !data.isDeleted); // Silinmemiş veriler
-  const currentPosts = unDeletedDatas.slice(firstPostIndex, lastPostIndex);
+  const currentPosts = unDeletedDatas.slice(firstPostIndex, lastPostIndex); 
 
   
   

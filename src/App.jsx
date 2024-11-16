@@ -1,30 +1,25 @@
-import React from 'react'
-import './assets/styles/index.scss'
+import React from 'react';
+import './assets/styles/index.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import MainPage from './pages/MainPage.jsx'
-import LoginPage from './pages/LoginPage.jsx'
+import { BrowserRouter } from 'react-router-dom';
+
 import { ToastContainer } from 'react-toastify';
 import { AuthProvider } from './context/AuthContext.jsx';
-import NewBlogPage from './pages/NewBlogPage.jsx';
-import BlogDetailPage from './pages/BlogDetailPage.jsx';
-
+import { DataProvider } from './context/DataContext.jsx';
+import MainContent from './pages/MainContent.jsx';
 
 const App = () => {
-
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<MainPage/>}></Route>
-          <Route path='/login' element={<LoginPage/>}></Route>
-          <Route path='/newblog' element={<NewBlogPage/>}></Route>
-          <Route path='/blogdetail/:id' element={<BlogDetailPage/>}></Route>
-        </Routes>
-      </BrowserRouter>
-      <ToastContainer/>
+      <DataProvider>
+        <BrowserRouter>
+          {/* Router içerisindeki her şeyi ayrı bir bileşene taşıyoruz */}
+          <MainContent/>
+        </BrowserRouter>
+        <ToastContainer />
+      </DataProvider>
     </AuthProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;
