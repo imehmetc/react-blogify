@@ -5,7 +5,6 @@ import Navbar from '../components/Navbar/Navbar'
 import '../assets/styles/blogdetailpage.scss'
 import ProfilePhoto from '../assets/img/profile-photo.jpg'
 import axios from 'axios'
-import AuthContext from '../context/AuthContext'
 import { useParams } from 'react-router-dom'
 
 const BlogDetailPage = () => {
@@ -18,8 +17,29 @@ const BlogDetailPage = () => {
     setBlog(response.data);
   };
 
+  const updateViewCount = async () => {
+    const url = `http://localhost:3000/blogs/${id}`;
+    try {
+      const response = await axios.get(url);
+      console.log(response.data);
+      
+       // Mevcut viewCount değerini sayıya dönüştür
+       const currentViewCount = parseInt(response.data.viewCount, 10);
+
+       // Eğer dönüştürme başarısız olursa (NaN) 0 olarak kabul et
+       const updatedViewCount = (isNaN(currentViewCount) ? 0 : currentViewCount) + 1;
+
+      await axios.patch(url, {
+        viewCount: updatedViewCount
+      });
+    } catch (error) {
+      console.error('Error updating view count:', error);
+    }
+  }
+
   useEffect(() => {
     fetchBlog();
+    updateViewCount();
   }, []);
   
   return (

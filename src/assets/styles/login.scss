@@ -3,7 +3,7 @@ html, body, #root{
 }
 
 .login-page{
-    background: linear-gradient(#aa1b1b00, #1c1c1c), url(../img/login-bg.jpg);
+    background: linear-gradient(#aa1b1b00, #1c1c1c), url(../img/login-bg.jpg) !important;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

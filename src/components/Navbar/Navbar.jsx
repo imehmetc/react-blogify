@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext  } from 'react';
 import './navbar.scss'
 import Logo from '../../assets/img/logo2.png'
 import ProfilePhoto from '../../assets/img/profile-photo.jpg'
@@ -9,12 +9,11 @@ import { MdFavoriteBorder } from "react-icons/md";
 import DataContext from '../../context/DataContext';
 import AuthContext from '../../context/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 
 const Navbar = () => {
-  const { toggleDropDown, isDropdownOpen, dispatch } = useContext(DataContext);
-  const { logout, isAuthenticated } = useContext(AuthContext);
-  const [currentUser, setCurrentUser] = useState("");
+  const { toggleDropDown, isDropdownOpen, dispatch, userData  } = useContext(DataContext);
+  const { logout, isAuthenticated, } = useContext(AuthContext);
+  
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -25,23 +24,6 @@ const Navbar = () => {
     logout();
     navigate("/login");
   };
-
-  const getCurrentUser = async() => {
-    const url = "https://api.escuelajs.co/api/v1/auth/profile";
-    const response = await axios.get(url, {
-      headers: {
-        "Authorization": `Bearer ${JSON.parse(localStorage.getItem("userTokens")).access_token}`
-      }
-    });
-    const user = response.data;
-    setCurrentUser(user);
-  };
-
-  useEffect(() => {
-    if (JSON.parse(localStorage.getItem("userTokens"))) {
-      getCurrentUser();
-    }
-  }, []);
 
   return (
     <nav className='navbar'>
@@ -60,13 +42,14 @@ const Navbar = () => {
             <div className='btn-notification'>
               <FaRegBell size={25} />
             </div>
-            <img src={ currentUser.avatar || ProfilePhoto } className='profile-photo' alt="Profile" onClick={toggleDropDown} />
+            <img src={ userData && userData.avatar ? userData.avatar: ProfilePhoto } className='profile-photo' alt="Profile" onClick={toggleDropDown} />
 
             <div className={`dropdown ${isDropdownOpen ? `open` : ''}`}>
               <ul>
-                <li>{currentUser.email}</li>
+                <li>{ userData.email }</li>
+                <li className='user-role'>{ userData.role }</li>
                 <hr />
-                <li><Link><FaRegUser /> Profile</Link></li>
+                <li><Link to="/profile"><FaRegUser /> Profile</Link></li>
                 <li><Link><MdFavoriteBorder /> Favorites</Link></li>
                 <li><a onClick={handleLogout}><FaSignOutAlt /> Signout</a></li>
               </ul>

@@ -43,7 +43,7 @@ const LoginPage = () => {
             </div>
             <div className='login-body'>
                 <form onSubmit={handeLogin} className='login-form'>
-                    <input type="text" className='email' placeholder='Email' defaultValue={username} onBlur={e => setUsername(e.target.value)}/>
+                    <input type="text" className='email' placeholder='Email' defaultValue={username} onChange={e => setUsername(e.target.value)}/>
                     <input type="password" className='password' placeholder='Password' defaultValue={password} onChange={e => setPassword(e.target.value)}/>
                     <input type="submit" className='loginButton' value="Login"/>
                     <Link to="/">Continue without login!</Link>

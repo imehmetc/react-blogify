@@ -5,6 +5,7 @@ import LoginPage from './LoginPage';
 import NewBlogPage from './NewBlogPage';
 import BlogDetailPage from './BlogDetailPage';
 import LoadingSpinner from '../components/LoadingSpinner/LoadingSpinner';
+import ProfilePage from './ProfilePage';
 
 const MainContent = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -32,6 +33,7 @@ const MainContent = () => {
         <Route path='/login' element={<LoginPage />} />
         <Route path='/newblog' element={<NewBlogPage />} />
         <Route path='/blogdetail/:id' element={<BlogDetailPage />} />
+        <Route path='/profile' element={<ProfilePage />} />
       </Routes>
     </div>
   );

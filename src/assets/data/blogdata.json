@@ -44,7 +44,7 @@
       "userEmail": "ornek@ornek.com",
       "category": "Virtual Reality",
       "likeCount": "25",
-      "viewCount": "50",
+      "viewCount": 50115,
       "userCommentCount": "5"
     },
     {
@@ -78,7 +78,7 @@
       "userEmail": "jane.smith@example.com",
       "category": "Blockchain",
       "likeCount": "45",
-      "viewCount": "210",
+      "viewCount": 211,
       "userCommentCount": "12"
     },
     {
@@ -89,7 +89,7 @@
       "userEmail": "alice.jones@example.com",
       "category": "Cybersecurity",
       "likeCount": "27",
-      "viewCount": "180",
+      "viewCount": 182,
       "userCommentCount": "7"
     },
     {
@@ -155,7 +155,7 @@
       "userEmail": "isabella.martin@example.com",
       "category": "Gaming",
       "likeCount": "52",
-      "viewCount": "230",
+      "viewCount": 231,
       "userCommentCount": "20"
     },
     {
@@ -253,6 +253,50 @@
       "viewCount": "1",
       "userCommentCount": "1",
       "isDeleted": true
+    },
+    {
+      "id": "23",
+      "title": "deneme",
+      "content": "deneme 12",
+      "imageUrl": "",
+      "category": "Data Science",
+      "userEmail": "john@mail.com",
+      "likeCount": "1",
+      "viewCount": 3,
+      "userCommentCount": "1"
+    },
+    {
+      "id": "24",
+      "title": "deneme2",
+      "content": "deneme2",
+      "imageUrl": "",
+      "category": "Gaming",
+      "userEmail": "john@mail.com",
+      "likeCount": "22",
+      "viewCount": "22",
+      "userCommentCount": "22"
+    },
+    {
+      "id": "25",
+      "title": "deneme3",
+      "content": "deneme3",
+      "imageUrl": "",
+      "category": "Technology",
+      "userEmail": "john@mail.com",
+      "likeCount": "33",
+      "viewCount": "33",
+      "userCommentCount": "33"
+    },
+    {
+      "id": "26",
+      "title": "deneme4",
+      "content": "deneme4",
+      "imageUrl": "",
+      "category": "DevOps",
+      "userEmail": "john@mail.com",
+      "likeCount": "44",
+      "viewCount": "44",
+      "userCommentCount": "44"
     }
   ],
   "categories": [

@@ -112,6 +112,19 @@
                 border-color: #1c1c1c;
             }
 
+            .user-role{
+                display: inline-block; 
+                padding: 3px 10px; 
+                font-size: 14px; 
+                font-weight: 600; 
+                color: #2c2c2c; 
+                background-color: #B7B7B7; 
+                border-radius: 12px; 
+                margin: 0;
+                display: flex;
+                justify-content: center;
+            }
+
             li{
                 margin-bottom: 10px;
                 text-align: center;

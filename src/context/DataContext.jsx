@@ -38,11 +38,7 @@ export const DataProvider = ({children}) => {
     setLoading(false);
   };
 
-  // useEffects
-  useEffect(() => {
-    getBlogs();
-    getCategories();
-  }, []);
+
 
 
  
@@ -154,6 +150,45 @@ export const DataProvider = ({children}) => {
       });
     };
 
+    // User Data
+    const fetchUserData = async () => {
+      try {
+        const userTokens = localStorage.getItem("userTokens");
+        if (!userTokens) {
+          throw new Error("User tokens not found in localStorage");
+        }
+    
+        const url = "https://api.escuelajs.co/api/v1/auth/profile";
+        const bearer = `Bearer ${JSON.parse(userTokens).access_token}`;
+        
+        const response = await axios.get(url, {
+          headers: {
+            "Authorization": bearer,
+          },
+        });
+        const userData = await response.data;
+        
+        dispatch({ type: "USER_DATA", payload: userData });
+      } catch (error) {
+        console.log("Error fetching user data:", error.response ? error.response.data : error.message);
+      }
+    };
+    
+    
+    // useEffects
+    useEffect(() => {
+      const fetchData = async () => {
+        setLoading(true);
+        await getBlogs();
+        await getCategories();
+        await fetchUserData();
+        setLoading(false);
+      };
+    
+      fetchData();
+    }, []);
+    
+
     return <DataContext.Provider value={{
     
       addNewBlog, 
@@ -164,7 +199,7 @@ export const DataProvider = ({children}) => {
       ...state,
       dispatch,
       setLoading,
-      isLoading: state.isLoading
+      isLoading: state.isLoading,
       
       }}>
                 {children}

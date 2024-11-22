@@ -4,6 +4,9 @@
     justify-content: center;
     margin-top: 1rem;
     margin-bottom: 10px;
+    bottom: 10px; /* Sayfanın alt kısmında 10px mesafe bırakır */
+    left: 50%;
+    z-index: 1000; /* Diğer içeriklerin üstünde görünmesini sağlar */
 
     button {
         width: 40px;

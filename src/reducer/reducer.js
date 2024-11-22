@@ -13,6 +13,7 @@ export const initialState = {
     userCommentCount: "",
     category: "Select a Category",
     isLoading: false,
+    userData: [],
 };
 
 export const reducer = (state, action) => {
@@ -110,5 +111,7 @@ export const reducer = (state, action) => {
             };
         // Loading
         case"SET_LOADING": return { ...state, isLoading: action.payload };
+        // UserData
+        case"USER_DATA": return { ...state, userData: action.payload };
     }
 }
